@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block cambioDeVista %}
+<style>
+    .centrado {
+    text-align: center;
+    }
+</style>
+
+<h1>Formulario de Series vistas</h1>
+<form action="{% url 'serie_formulario' %}" method="post">
+    {% csrf_token %}
+    <table>
+    {{formulario.as_table}}
+    </table>
+    <input type="submit" value="Enviar">
+</form>
+{% endblock %}
