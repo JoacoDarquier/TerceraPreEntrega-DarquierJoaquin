@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block cambioDeVista %}
+<h1>Resultado busqueda</h1>
+{% if pelicula %}
+<li>Titulo: {{pelicula.nombre}} </li>
+{% else %}
+<h2>No se encontro pelicula</h2>
+{% endif %}
+{% endblock %}

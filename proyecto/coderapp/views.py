@@ -62,5 +62,21 @@ def libro_formulario (request):
     return render(request,'libro_formulario.html', {"formulario": formulario})
 
 
+def buscar(request):
+    formulario = PeliculaBusqueda()
+    return render(request, 'busqueda_pelicula.html', {"formulario": formulario})
+
+def busqueda_pelicula (request):
+    if request.method == 'GET':
+        pelicula = request.GET.get("nombre")
+        if pelicula is None:
+            return HttpResponse("Debe cargar una pelicula")
+        pelicula = Pelicula.objects.filter(nombre=pelicula)
+
+    return render (request, 'pelicula_busqueda_respuesta.html', {"pelicula": pelicula})
+
+
+
+
 
 
